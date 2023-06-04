@@ -82,7 +82,7 @@ class _HomePageState extends State<HomePage> {
                     child: Text(
                       '-',
                       style: TextStyle(
-                        fontSize: 110,
+                        fontSize: 100,
                         height: 0.65,
                         color: Color(0xffffffff),
                       ),
@@ -111,7 +111,7 @@ class _HomePageState extends State<HomePage> {
                     child: Text(
                       '+',
                       style: TextStyle(
-                        fontSize: 90,
+                        fontSize: 70,
                         height: 0.77,
                         color: Color(0xffffffff),
                       ),
