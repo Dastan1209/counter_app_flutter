@@ -1,29 +1,24 @@
-import 'package:counter_app_2/home_page.dart';
-import 'package:counter_app_2/second_page.dart';
+import 'package:counter_app_2/app/modules/third/view/third_view.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class ThirdPage extends StatelessWidget {
-  const ThirdPage(this.number);
-  final String number;
+import '../../first/controller/first_controller.dart';
+
+class SecondView extends StatelessWidget {
+  SecondView();
+  final _firstController = Get.put<FirstController>(FirstController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Third Page====>$number'),
+        title: Text('Second Page'),
       ),
-      body: Center(
-        child: GestureDetector(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: ((context) => HomePage(
-                    // sanAlypkel: san,
-                    )),
-              ),
-            );
-          },
+      body: InkWell(
+        onTap: () {
+          Get.to(() => ThirdView());
+        },
+        child: Center(
           child: Container(
             decoration: BoxDecoration(
               color: const Color(0xffAAAAAA).withOpacity(0.8),
@@ -33,7 +28,7 @@ class ThirdPage extends StatelessWidget {
             height: 44,
             child: Center(
               child: Text(
-                'Uchunchu bettin Sany: $number  ',
+                'San: ${_firstController.san.value} ',
                 style: const TextStyle(
                   fontWeight: FontWeight.w500,
                   fontSize: 18,

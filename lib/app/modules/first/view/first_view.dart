@@ -1,16 +1,19 @@
-import 'package:counter_app_2/second_page.dart';
+import 'dart:developer';
+
+import 'package:counter_app_2/app/modules/first/controller/first_controller.dart';
+import 'package:counter_app_2/app/modules/second/view/second_view.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class HomePage extends StatefulWidget {
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
+class FirstView extends StatelessWidget {
+  FirstView({super.key});
+  final _firstController = Get.put<FirstController>(FirstController());
 
-class _HomePageState extends State<HomePage> {
   @override
   // ignore: override_on_non_overriding_member
-  int san = 6;
+
   Widget build(BuildContext context) {
+    log('buildCount ====> ${_firstController.buildCount.value++}');
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -31,10 +34,8 @@ class _HomePageState extends State<HomePage> {
           Center(
             child: InkWell(
               onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => SecondPage(san: san),
-                  ),
+                Get.to(
+                  () => SecondView(),
                 );
               },
               child: Container(
@@ -45,12 +46,14 @@ class _HomePageState extends State<HomePage> {
                 width: 345,
                 height: 44,
                 child: Center(
-                  child: Text(
-                    'San:  $san',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 18,
-                      color: Color(0xff000000),
+                  child: Obx(
+                    () => Text(
+                      'San:  ${_firstController.san.value}',
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 18,
+                        color: Color(0xff000000),
+                      ),
                     ),
                   ),
                 ),
@@ -64,13 +67,7 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               GestureDetector(
-                onTap: () {
-                  setState(
-                    () {
-                      san--;
-                    },
-                  );
-                },
+                onTap: () => _firstController.kemit(),
                 child: Container(
                   height: 50,
                   width: 80,
@@ -94,12 +91,7 @@ class _HomePageState extends State<HomePage> {
                 width: 30,
               ),
               TextButton(
-                onPressed: () {
-                  setState(() {
-                    san++;
-                  });
-                  ;
-                },
+                onPressed: () => _firstController.koshuu(),
                 child: Container(
                   height: 50,
                   width: 80,
