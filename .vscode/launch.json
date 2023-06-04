@@ -5,27 +5,21 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch Chrome",
+            "name": "counter_app_2",
             "request": "launch",
-            "type": "chrome",
-            "url": "http://localhost:8080",
-            "webRoot": "${workspaceFolder}"
+            "type": "dart"
         },
         {
-            "name": "Launch Chrome",
+            "name": "counter_app_2 (profile mode)",
             "request": "launch",
-            "type": "chrome",
-            "url": "http://localhost:8080",
-            "webRoot": "${workspaceFolder}"
+            "type": "dart",
+            "flutterMode": "profile"
         },
-
-
         {
-            "type": "chrome",
+            "name": "counter_app_2 (release mode)",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
-            "url": "http://localhost:8080",
-            "webRoot": "${workspaceFolder}"
+            "type": "dart",
+            "flutterMode": "release"
         }
     ]
 }
